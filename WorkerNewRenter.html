@@ -50,7 +50,7 @@
         <div class="left_col scroll-view">
 
           <div class="navbar nav_title" style="border: 0;">
-            <a href="WorkerIndex.html" class="site_title"><i class="fa fa-paw"></i> <span>CT Rental</span></a>
+            <a href="WorkerIndex.html" class="site_title"><img src="images/nature.png" height="40" alt="" /> <span>CT Rental</span></a>
           </div>
           <div class="clearfix"></div>
 
@@ -123,7 +123,7 @@
           <!-- /sidebar menu -->
 
           <!-- /menu footer buttons -->
-          
+
           <!-- /menu footer buttons -->
         </div>
       </div>
@@ -232,24 +232,6 @@
 
       <!-- page content -->
       <div class="right_col" role="main">
-
-        <!-- top tiles -->
-        <!-- <div class="row tile_count">
-            <div class="animated flipInY col-md-2 col-sm-4 col-xs-4 tile_stats_count">
-            </div>
-            <div class="animated flipInY col-md-2 col-sm-4 col-xs-4 tile_stats_count">
-            </div>
-            <div class="animated flipInY col-md-2 col-sm-4 col-xs-4 tile_stats_count">
-            </div>
-            <div class="animated flipInY col-md-2 col-sm-4 col-xs-4 tile_stats_count">
-            </div>
-            <div class="animated flipInY col-md-2 col-sm-4 col-xs-4 tile_stats_count">
-            </div>
-            <div class="animated flipInY col-md-2 col-sm-4 col-xs-4 tile_stats_count">
-          </div>
-
-        </div>
-        <!-- /top tiles -->
                       <div class="">
                         <div class="page-title">
                           <div class="title_left">
@@ -276,38 +258,31 @@
 
 
                                   <div class="item form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Name <span class="required">*</span>
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Name
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                      <input type="email" id="email" name="email" required="required" placeholder="e.g Nancy Valentina" class="form-control col-md-7 col-xs-12">
+                                      <input type="email" id="renterName" name="email" placeholder="e.g Nancy Valentina" class="form-control col-md-7 col-xs-12" required>
                                     </div>
                                   </div>
                                   <div class="item form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Rent ID <span class="required">*</span>
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Phone Number
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                      <input type="email" id="email" name="email" required="required" class="form-control col-md-7 col-xs-12">
+                                      <input type="email" id="numberPhone" name="confirm_email" data-validate-linked="email" required="required" class="form-control col-md-7 col-xs-12" required>
                                     </div>
                                   </div>
                                   <div class="item form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Phone Number <span class="required">*</span>
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="website">Address
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                      <input type="email" id="email2" name="confirm_email" data-validate-linked="email" required="required" class="form-control col-md-7 col-xs-12">
-                                    </div>
-                                  </div>
-                                  <div class="item form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="website">Address <span class="required">*</span>
-                                    </label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                      <input type="url" id="website" name="website" required="required" class="form-control col-md-7 col-xs-12">
+                                      <input type="url" id="address" name="website" required="required" class="form-control col-md-7 col-xs-12">
                                     </div>
                                   </div>
                                   <div class="ln_solid"></div>
                                   <div class="form-group">
                                     <div class="col-md-6 col-md-offset-3">
                                       <button type="submit" class="btn btn-primary">Cancel</button>
-                                      <button id="send" type="submit" class="btn btn-success">Add</button>
+                                      <button id="send" type="submit" onclick="insertRenter()" class="btn btn-success">Insert</button>
                                     </div>
                                   </div>
                                 </form>

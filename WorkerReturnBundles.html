@@ -50,7 +50,7 @@
         <div class="left_col scroll-view">
 
           <div class="navbar nav_title" style="border: 0;">
-            <a href="WorkerIndex.html" class="site_title"><i class="fa fa-paw"></i> <span>CT Rental</span></a>
+            <a href="WorkerIndex.html" class="site_title"><img src="images/nature.png" height="40" alt="" /> <span>CT Rental</span></a>
           </div>
           <div class="clearfix"></div>
 
@@ -123,7 +123,7 @@
           <!-- /sidebar menu -->
 
           <!-- /menu footer buttons -->
-          
+
           <!-- /menu footer buttons -->
         </div>
       </div>
@@ -275,38 +275,24 @@
                                   <span class="section">Rental Info</span>
 
                                   <div class="item form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Bundle's Name <span class="required">*</span>
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Bundle's ID
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                      <input type="email" id="email" name="email" required="required" class="form-control col-md-7 col-xs-12">
+                                      <input type="number" id="bundleId" name="email" required="required" class="form-control col-md-7 col-xs-12">
                                     </div>
                                   </div>
                                   <div class="item form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Bundle's ID <span class="required">*</span>
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="website">Number of Bundles
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                      <input type="email" id="email" name="email" required="required" class="form-control col-md-7 col-xs-12">
-                                    </div>
-                                  </div>
-                                  <div class="item form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Renter's name <span class="required">*</span>
-                                    </label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                      <input type="email" id="email2" name="confirm_email" data-validate-linked="email" required="required" class="form-control col-md-7 col-xs-12">
-                                    </div>
-                                  </div>
-                                  <div class="item form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="website">Returns Date <span class="required">*</span>
-                                    </label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                      <input type="url" id="website" name="website" required="required" class="form-control col-md-7 col-xs-12">
+                                      <input type="number" id="numBundle" name="website" required="required" class="form-control col-md-7 col-xs-12">
                                     </div>
                                   </div>
                                   <div class="ln_solid"></div>
                                   <div class="form-group">
                                     <div class="col-md-6 col-md-offset-3">
                                       <button type="submit" class="btn btn-primary">Cancel</button>
-                                      <button id="send" type="submit" class="btn btn-success">Return</button>
+                                      <button id="send" type="submit" onclick="returnBundle()" class="btn btn-success">Return</button>
                                     </div>
                                   </div>
                                 </form>
@@ -319,12 +305,6 @@
       <!-- /page content -->
 
       <!-- footer content -->
-      <footer>
-        <div class="pull-right">
-          Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
-        </div>
-        <div class="clearfix"></div>
-      </footer>
       <!-- /footer content -->
     </div>
   </div>

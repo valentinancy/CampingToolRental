@@ -401,8 +401,11 @@ function login() {
     success: function(response){
       obj = JSON.parse(response);
       //alert(obj.message);
-      if (obj.message=="login berhasil") {
+      if (obj.message=="owner") {
         window.location.assign('OwnerIndex.html');
+      }
+      else if (obj.message=="worker") {
+        window.location.assign('WorkerIndex.html');
       }
       else {
         alert('USERNAME ATAU PASSWORD YANG ANDA MASUKAN SALAH ATAU TIDAK TERDAFTAR');
@@ -426,17 +429,17 @@ function logout() {
     method: 'POST',
     contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
     data: {
-      username: username
+      Username: username
     },
     success: function(response){
       obj = JSON.parse(response);
-      //alert(obj.message);
       if (obj.message=="logout berhasil") {
         window.location.assign('login.html');
       }
       else {
         alert(obj.message);
       }
+      // alert(obj.message);
     },
     error: function(xhr, status, error){
       alert(error);
@@ -562,6 +565,166 @@ function insertBundle() {
  });
 }
 
+function insertRenter() {
+  var name = $('#renterName').val();
+  var address = $('#address').val();
+  var numberPhone = $('#numberPhone').val();
+
+  $.ajax({
+    url: 'http:/localhost:3000/api/insertRenter',
+    dataType: 'text',
+    method: 'POST',
+    contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+    data: {
+      Name: name,
+      Address: address,
+      Number_phone: numberPhone
+    },
+    success: function(response){
+      obj = JSON.parse(response);
+      if (obj.message=="insert berhasil") {
+        window.location.assign('OwnerInsertBerhasil.html');
+      }
+      else {
+        alert(obj.message);
+      }
+    },
+    error: function(xhr, status, error){
+      //window.location.assign('OwnerInsertBerhasil.html');
+    },
+    complete: function(){
+   }
+ });
+}
+
+function toolTransaction() {
+  var Id_tool = $('#toolId').val();
+  var Id_renter = $('#renterId').val();
+  var NumOfRent = $('#numTool').val();
+  var Rental_time = $('#rentTime').val();
+
+  $.ajax({
+    url: 'http:/localhost:3000/api/rentTool',
+    dataType: 'text',
+    method: 'POST',
+    contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+    data: {
+      Id_tool: Id_tool,
+      Id_renter: Id_renter,
+      NumOfRent: NumOfRent,
+      Rental_time: Rental_time
+    },
+    success: function(response){
+      obj = JSON.parse(response);
+      if (obj.message=="insert berhasil") {
+        window.location.assign('OwnerInsertBerhasil.html');
+      }
+      else {
+        alert(obj.message);
+      }
+    },
+    error: function(xhr, status, error){
+      window.location.assign('OwnerInsertBerhasil.html');
+    },
+    complete: function(){
+   }
+ });
+}
+
+function bundleTransaction() {
+  var Id_bundle = $('#bundleId').val();
+  var Id_renter = $('#renterId').val();
+  var NumOfRent = $('#numBundle').val();
+  var Rental_time = $('#rentTime').val();
+
+  $.ajax({
+    url: 'http:/localhost:3000/api/rentBundle',
+    dataType: 'text',
+    method: 'POST',
+    contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+    data: {
+      Id_bundle: Id_bundle,
+      Id_renter: Id_renter,
+      NumOfRent: NumOfRent,
+      Rental_time: Rental_time
+    },
+    success: function(response){
+      obj = JSON.parse(response);
+      if (obj.message=="insert berhasil") {
+        window.location.assign('OwnerInsertBerhasil.html');
+      }
+      else {
+        alert(obj.message);
+      }
+    },
+    error: function(xhr, status, error){
+      window.location.assign('OwnerInsertBerhasil.html');
+    },
+    complete: function(){
+   }
+ });
+}
+
+function returnBundle() {
+  var Id_bundle = $('#bundleId').val();
+  var NumOfRent = $('#numBundle').val();
+
+  $.ajax({
+    url: 'http:/localhost:3000/api/returnBundle',
+    dataType: 'text',
+    method: 'POST',
+    contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+    data: {
+      Id_bundle: Id_bundle,
+      NumOfRent: NumOfRent
+    },
+    success: function(response){
+      obj = JSON.parse(response);
+      if (obj.message=="update berhasil") {
+        window.location.assign('OwnerInsertBerhasil.html');
+      }
+      else {
+        alert(obj.message);
+      }
+    },
+    error: function(xhr, status, error){
+      window.location.assign('OwnerInsertBerhasil.html');
+    },
+    complete: function(){
+   }
+ });
+}
+
+function returnTool() {
+  var Id_tool = $('#toolId').val();
+  var NumOfRent = $('#numTool').val();
+
+  $.ajax({
+    url: 'http:/localhost:3000/api/returnTool',
+    dataType: 'text',
+    method: 'POST',
+    contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+    data: {
+      Id_tool: Id_tool,
+      NumOfRent: NumOfRent
+    },
+    success: function(response){
+      obj = JSON.parse(response);
+      if (obj.message=="update berhasil") {
+        window.location.assign('WorkerInsertBerhasil.html');
+      }
+      else {
+        alert(obj.message);
+      }
+    },
+    error: function(xhr, status, error){
+      window.location.assign('WorkerInsertBerhasil.html');
+    },
+    complete: function(){
+   }
+ });
+}
+
 
 $.ajax({
   url: 'http:/localhost:3000/api/semuaorang',
@@ -626,13 +789,13 @@ $.ajax({
        tu.append("<td> <a href=''><i class='fa fa-check' onclick='updateTool()'></i></a></td>")
        $('#bodyTableUpdateTool').append(tu);
 
-       ts = $('<tr/>');
-       ts.append("<td>" + obj.message[i].Id_tool + "</td>");
-       ts.append("<td>" + obj.message[i].Name_tool + "</td>");
-       ts.append("<td>" + obj.message[i].Type + "</td>");
-       ts.append("<td>" + obj.message[i].Price + "</td>");
-       ts.append("<td>" + obj.message[i].Stock + "</td>");
-       $('#bodyTableTool').append(ts);
+      //  ts = $('<tr/>');
+      //  ts.append("<td>" + obj.message[i].Id_tool + "</td>");
+      //  ts.append("<td>" + obj.message[i].Name_tool + "</td>");
+      //  ts.append("<td>" + obj.message[i].Type + "</td>");
+      //  ts.append("<td>" + obj.message[i].Price + "</td>");
+      //  ts.append("<td>" + obj.message[i].Stock + "</td>");
+      //  $('#bodyTableTool').append(ts);
     }
   },
   error: function(xhr, status, error){
@@ -680,17 +843,50 @@ $.ajax({
  }
 });
 
+$.ajax({
+  url: 'http:/localhost:3000/api/allRenters',
+  dataType: 'text',
+  method: 'POST',
+  contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+  success: function(response){
+    obj = JSON.parse(response);
+
+    for (var i = 0; i < obj.message.length; i++) {
+       tr = $('<tr/>');
+       tr.append("<td>" + obj.message[i].Name + "</td>");
+       tr.append("<td>" + obj.message[i].Id_renter + "</td>");
+       tr.append("<td>" + obj.message[i].Number_phone + "</td>");
+       tr.append("<td>" + obj.message[i].Address + "</td>");
+       $('#bodyTableRenter').append(tr);
+    }
+  },
+  error: function(xhr, status, error){
+    alert(error);
+  },
+  complete: function(){
+ }
+});
+
+
+
+
 
 var updateUser = function(e) {
     var nRow = $(this).parents('tr')[1];
     var jqTds = $('input', nRow);
 
-    var id = jqTds[1].value;
-    var name = jqTds[2].value;
-    var address = jqTds[3].value;
-    var username = jqTds[4].value;
-    var password = jqTds[5].value;
-    var role = jqTds[6].value;
+    // var name = document.getElementById("updateTable");
+    // var table = document.getElementById('updateTable'),
+    // rows = table.getElementsByTagName('tr'),
+    // i ,j ,cells, id, name, address, username, password, role, jqTds;
+
+      var id = jqTds[0].value;
+      var name = jqTds[1].value;
+      var address = jqTds[2].value;
+      var username = jqTds[3].value;
+      var password = jqTds[4].value;
+      var role = jqTds[5].value;
+
 
     $.ajax({
       url: 'http://localhost:3000/api/update',
@@ -714,49 +910,61 @@ var updateUser = function(e) {
     });
 }
 
-// function updateNancy(e) {
-//    var name = document.getElementById("updateTable").rows[1].cells[1].getElementsByTagName('input')[0].value;
-//     var table = document.getElementById('updateTable'),
-//     rows = table.getElementsByTagName('tr'),
-//     i ,j ,cells, id, name, address, username, password, role;
-//
-//     for (i = 0, j = rows.length ; i < j ; ++i) {
-//       cells = rows[i].getElementsByTagName('td');
-//         // cells = $('input', rows[i]);
-//       if(!cells.length) {
-//         continue;
-//       }
-//       id = cells[0].innerHTML.value;
-//       name = cells[1].getElementsByTagName('input')[0].value;
-//       address = cells[2].innerHTML.value;
-//       username = cells[3].innerHTML.value;
-//       password = cells[4].innerHTML.value;
-//       role = cells[5].innerHTML.value;
-//     var myTable = document.getElementById('updateTable');
-//     updateTable.rows[0].cells[1].innerHTML = 'Hello';
-//     }
-//
-//     $.ajax({
-//       url: 'http://localhost:3000/api/update',
-//       dataType: 'text',
-//       method: 'POST',
-//       data: {
-//         id: id,
-//         nama: name,
-//         alamat: address,
-//         username:username,
-//         password:password,
-//         role:role
-//       },
-//       contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
-//       success: function(response){
-//       },
-//       error: function(xhr, status, error){
-//       },
-//       complete: function(){
-//      }
-//     });
-// }
+      // $("#updateTable").on('click','tr',function(e){
+      //       e.preventDefault();
+      //       var satu = $(this).html().split('<td>');
+      //       var id = satu[1].split('"');
+      //       var name = satu[2].split('"');
+      //       var address = satu[3].split('"');
+      //       var username = satu[4].split('"');
+      //       var password = satu[5].split('"');
+      //       var role = satu[6].split('"');
+      //       alert(id[3]+" "+name[3]+" "+address[3]+" "+username[3]+" "+password[3]+" "+role[3]+" ");
+      // });
+
+function updateNancy(e) {
+   var name = document.getElementById("updateTable").rows[1].cells[1].getElementsByTagName('input')[0].value;
+    var table = document.getElementById('updateTable'),
+    rows = table.getElementsByTagName('tr'),
+    i ,j ,cells, id, name, address, username, password, role;
+
+    for (i = 0, j = rows.length ; i < j ; ++i) {
+      //cells = rows[i].getElementsByTagName('td');
+      cells = $('input', rows[i].getElementsByTagName('td'));
+      if(!cells.length) {
+        continue;
+      }
+      id = cells[0].innerHTML.value;
+      name = cells[1].getElementsByTagName('input')[0].value;
+      address = cells[2].innerHTML.value;
+      username = cells[3].innerHTML.value;
+      password = cells[4].innerHTML.value;
+      role = cells[5].innerHTML.value;
+    // var myTable = document.getElementById('updateTable');
+    // updateTable.rows[0].cells[1].innerHTML = 'Hello';
+    }
+
+    $.ajax({
+      url: 'http://localhost:3000/api/update',
+      dataType: 'text',
+      method: 'POST',
+      data: {
+        id: id,
+        nama: name,
+        alamat: address,
+        username:username,
+        password:password,
+        role:role
+      },
+      contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+      success: function(response){
+      },
+      error: function(xhr, status, error){
+      },
+      complete: function(){
+     }
+    });
+}
 
 
 function deleteUser(e){
@@ -843,7 +1051,104 @@ function deleteBundle(e){
     });
 }
 
-// START of Drop down type insert tool Owner
-function dropDownInsertType() {
-    document.getElementById("myDropdown").classList.toggle("show");
+function searchRenter() {
+  var numberPhone = $('#numberPhone').val();
+
+  $.ajax({
+    url: 'http://localhost:3000/api/searchRenter',
+    dataType: 'text',
+    method: 'POST',
+    data: {
+      Number_phone: numberPhone
+    },
+    contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+    success: function(response){
+      obj = JSON.parse(response);
+
+
+      for (var i = 0; i < obj.message.length; i++) {
+         tr = $('<tr/>');
+         tr.append("<td>" + obj.message[i].Id_renter + "</td>");
+         tr.append("<td>" + obj.message[i].Name + "</td>");
+         tr.append("<td>" + obj.message[i].Address + "</td>");
+         tr.append("<td>" + obj.message[i].Number_phone + "</td>");
+         $('#stockTool').append(tr);
+      }
+    },
+    error: function(xhr, status, error){
+    },
+    complete: function(){
+   }
+  });
+}
+
+
+function checkToolByDate() {
+  var day = $('#day').val();
+  var month = $('#month').val();
+  var year = $('#year').val();
+  var date = year + "-" + month + "-" + day;
+  // alert(date);
+
+  $.ajax({
+    url: 'http://localhost:3000/api/checkToolByDate',
+    dataType: 'text',
+    method: 'POST',
+    data: {
+      Rental_date1: date
+    },
+    contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+    success: function(response){
+      obj = JSON.parse(response);
+
+      for (var i = 0; i < obj.message.length; i++) {
+         tr = $('<tr/>');
+         tr.append("<td>" + obj.message[i].Id_tool + "</td>");
+         tr.append("<td>" + obj.message[i].Name_tool + "</td>");
+         tr.append("<td>" + obj.message[i].Type + "</td>");
+         tr.append("<td>" + obj.message[i].Price + "</td>");
+         tr.append("<td>" + obj.message[i].Stock + "</td>");
+         $('#stockTool').append(tr);
+      }
+    },
+    error: function(xhr, status, error){
+    },
+    complete: function(){
+   }
+  });
+}
+
+function checkBundleByDate() {
+  var day = $('#day').val();
+  var month = $('#month').val();
+  var year = $('#year').val();
+  var date = year + "-" + month + "-" + day;
+  // alert(date);
+
+  $.ajax({
+    url: 'http://localhost:3000/api/checkBundleByDate',
+    dataType: 'text',
+    method: 'POST',
+    data: {
+      Rental_date1: date
+    },
+    contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+    success: function(response){
+      obj = JSON.parse(response);
+
+      for (var i = 0; i < obj.message.length; i++) {
+         tr = $('<tr/>');
+         tr.append("<td>" + obj.message[i].Id_tool + "</td>");
+         tr.append("<td>" + obj.message[i].Name_tool + "</td>");
+         tr.append("<td>" + obj.message[i].Type + "</td>");
+         tr.append("<td>" + obj.message[i].Price + "</td>");
+         tr.append("<td>" + obj.message[i].Stock + "</td>");
+         $('#stockTool').append(tr);
+      }
+    },
+    error: function(xhr, status, error){
+    },
+    complete: function(){
+   }
+  });
 }

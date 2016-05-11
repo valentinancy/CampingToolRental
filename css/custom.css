@@ -849,6 +849,10 @@ h2 {
 .x_title span {
   color: #BDBDBD;
 }
+.x_title p {
+  font-size: 15px;
+}
+
 .x_content {
   padding: 0 5px 6px;
   position: relative;

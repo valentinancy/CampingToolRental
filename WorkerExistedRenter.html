@@ -50,7 +50,7 @@
         <div class="left_col scroll-view">
 
           <div class="navbar nav_title" style="border: 0;">
-            <a href="WorkerIndex.html" class="site_title"><i class="fa fa-paw"></i> <span>CT Rental</span></a>
+            <a href="WorkerIndex.html" class="site_title"><img src="images/nature.png" height="40" alt="" /> <span>CT Rental</span></a>
           </div>
           <div class="clearfix"></div>
 
@@ -123,7 +123,7 @@
           <!-- /sidebar menu -->
 
           <!-- /menu footer buttons -->
-          
+
           <!-- /menu footer buttons -->
         </div>
       </div>
@@ -144,16 +144,6 @@
                   <span class=" fa fa-angle-down"></span>
                 </a>
                 <ul class="dropdown-menu dropdown-usermenu pull-right">
-                  <li><a href="javascript:;">  Profile</a>
-                  </li>
-                  <li>
-                    <a href="javascript:;">
-                      <span>Settings</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="javascript:;">Help</a>
-                  </li>
                   <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
                   </li>
                 </ul>
@@ -253,9 +243,9 @@
             <div class="title_right">
               <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
                 <div class="input-group">
-                  <input type="text" class="form-control" placeholder="Search for...">
+                  <input type="text" id="numberPhone" class="form-control" placeholder="Search for...">
                   <span class="input-group-btn">
-                            <button class="btn btn-default" type="button">Find!</button>
+                            <button class="btn btn-default" onclick="searchRenter()" type="button">Find!</button>
                         </span>
                 </div>
               </div>
@@ -269,21 +259,6 @@
               <div class="x_panel">
                 <div class="x_title">
                   <h2>Data</h2>
-                  <ul class="nav navbar-right panel_toolbox">
-                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                    </li>
-                    <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                      <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Settings 1</a>
-                        </li>
-                        <li><a href="#">Settings 2</a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li><a class="close-link"><i class="fa fa-close"></i></a>
-                    </li>
-                  </ul>
                   <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
@@ -294,29 +269,11 @@
                         <th>Rent ID</th>
                         <th>Phone Number</th>
                         <th>Address</th>
-                        <th>Start date</th>
-                        <th>Salary</th>
                       </tr>
                     </thead>
 
 
-                    <tbody>
-                      <tr>
-                        <td>Tiger Nixon</td>
-                        <td>System Architect</td>
-                        <td>Edinburgh</td>
-                        <td>61</td>
-                        <td>2011/04/25</td>
-                        <td>$320,800</td>
-                      </tr>
-                      <tr>
-                        <td>Garrett Winters</td>
-                        <td>Accountant</td>
-                        <td>Tokyo</td>
-                        <td>63</td>
-                        <td>2011/07/25</td>
-                        <td>$170,750</td>
-                      </tr>
+                    <tbody id="bodyTableRenter">
                     </tbody>
                   </table>
                 </div>

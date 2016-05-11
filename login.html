@@ -45,7 +45,7 @@
     <div id="wrapper">
       <div id="login" class="animate form">
         <section class="login_content">
-          <form>
+          <form id="loginform">
             <h1>Log in</h1>
             <div>
               <input id="username" type="text" class="form-control" placeholder="Username" required="" />
@@ -53,20 +53,11 @@
             <div>
               <input id="password" type="password" class="form-control" placeholder="Password" required="" />
             </div>
-            <div id="gender" class="btn-group" data-toggle="buttons">
-              <label class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-                <input type="radio" name="gender" value="male"> &nbsp; Owner &nbsp;
-              </label>
-              <label class="btn btn-primary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-                <input type="radio" name="gender" value="female"> Worker
-              </label>
-            </div>
             <div class="row">
 
             </div>
             <div>
               <a class="btn btn-default submit" onclick="login()">Log in</a>
-              <a class="reset_pass" href="#">Lost your password?</a>
             </div>
             <div class="clearfix"></div>
             <div class="separator">
