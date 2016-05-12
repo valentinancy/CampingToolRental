@@ -746,13 +746,19 @@ $.ajax({
        $('#bodyTableDelete').append(tr);
 
        tu = $('<tr/>');
-       tu.append("<td><input type='text' name='name' class='foo' readonly value='"+obj.message[i].Id+"'></td>");
-       tu.append("<td><input type='text' id='name' name='name' value='"+obj.message[i].Nama+"'></td>");
-       tu.append("<td><input type='text' name='name' value='"+obj.message[i].Alamat+"'></td>");
-       tu.append("<td><input type='text' name='name' value='"+obj.message[i].Username+"'></td>");
-       tu.append("<td><input type='text' name='name' value='"+obj.message[i].Password+"'></td>");
-       tu.append("<td><input type='text' name='name' readonly value='"+obj.message[i].role+"'></td>");
-       tu.append("<td> <a href=''><i class='fa fa-check' onclick='updateUser()'></i></a></td>")
+      //  tu.append("<td><input type='text' name='name' class='foo' readonly value='"+obj.message[i].Id+"'></td>");
+      //  tu.append("<td><input type='text' id='name' name='name' value='"+obj.message[i].Nama+"'></td>");
+      //  tu.append("<td><input type='text' name='name' value='"+obj.message[i].Alamat+"'></td>");
+      //  tu.append("<td><input type='text' name='name' value='"+obj.message[i].Username+"'></td>");
+      //  tu.append("<td><input type='text' name='name' value='"+obj.message[i].Password+"'></td>");
+      //  tu.append("<td><input type='text' name='name' readonly value='"+obj.message[i].role+"'></td>");
+      //  tu.append("<td> <a href=''><i class='fa fa-check' onclick='updateUser()'></i></a></td>")
+          tu.append("<td>"+obj.message[i].Id+"</td>");
+          tu.append("<td contenteditable='true'>"+obj.message[i].Nama+"</td>");
+          tu.append("<td contenteditable='true'>"+obj.message[i].Alamat+"</td>");
+          tu.append("<td contenteditable='true'>"+obj.message[i].Username+"</td>");
+          tu.append("<td contenteditable='true'>"+obj.message[i].Password+"</td>");
+          tu.append("<td>"+obj.message[i].role+"</td>");
        $('#bodyTableUpdate').append(tu);
 
     }
